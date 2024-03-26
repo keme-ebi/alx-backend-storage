@@ -2,12 +2,9 @@
 """
 8-all
 """
-import pymongo
-from pymongo.collection import Collection
-from typing import List
 
 
-def list_all(mongo_collection: Collection) -> List:
+def list_all(mongo_collection):
     """
     lists all documents in a collection
     Args:
@@ -16,8 +13,5 @@ def list_all(mongo_collection: Collection) -> List:
         all documents in a collection,
         else an empty list if no document in the collection
     """
-    coll_list = []
-    for coll in mongo_collection.find({}):
-        coll_list.append(coll)
-
-    return coll_list
+    doc = mongo_collection.find({})
+    return [] if not doc else doc
