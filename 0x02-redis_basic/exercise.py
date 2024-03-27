@@ -9,12 +9,13 @@ from typing import Union
 
 class Cache:
     """a Cache class"""
-    def __init__(self):
+
+    def __init__(self) -> None:
         """initialization and storing of reids client instance"""
         self._redis = redis.Redis()
         self._redis.flushdb()
 
-    def store(self, data: Union[bytes, str, int, float]) -> str:
+    def store(self, data: Union[str, bytes, int, float]) -> str:
         """generates a random key using uuid, stores the input data
             in Redis using the random key and return the key
         Arg:
